@@ -16,6 +16,8 @@ import android.view.View;
 import com.example.csc22100_finalproject.ui.main.SectionsPagerAdapter;
 import com.example.csc22100_finalproject.databinding.ActivityMainBinding;
 
+//I dont know what this is
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
