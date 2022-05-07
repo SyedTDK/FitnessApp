@@ -2,35 +2,44 @@ package com.example.csc22100_finalproject;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.example.csc22100_finalproject.ui.main.SectionsPagerAdapter;
 import com.example.csc22100_finalproject.databinding.ActivityMainBinding;
 
 //I dont know what this is
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private  TabLayout tabs;
+    private  ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        tabs = findViewById(R.id.tabs);
+        viewPager = findViewById(R.id.viewpager);
+
+        tabs.setupWithViewPager(viewPager);
+
+        Adapter adapter = new Adapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        adapter.addFragment(new fragment1(), "CHEST");
+        adapter.addFragment(new fragment2(), "BACK");
+        adapter.addFragment(new fragment3(), "ARMS");
+        adapter.addFragment(new fragment4(), "ABDOMINAL");
+        adapter.addFragment(new fragment5(), "LEGS");
+        adapter.addFragment(new fragment6(), "SHOULDERS");
+        viewPager.setAdapter(adapter);
+/*        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
+        ViewPager viewPager = binding.viewpager;
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
@@ -42,6 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        }); */
     }
 }
