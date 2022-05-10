@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new fragment1(), "CHEST");
         adapter.addFragment(new fragment2(), "BACK");
         adapter.addFragment(new fragment3(), "ARMS");
-        adapter.addFragment(new fragment4(), "ABDOMINAL");
-        adapter.addFragment(new fragment5(), "LEGS");
-        adapter.addFragment(new fragment6(), "SHOULDERS");
+        adapter.addFragment(new fragment4(), "LEGS");
+        adapter.addFragment(new fragment5(), "SHOULDERS");
         viewPager.setAdapter(adapter);
+
 /*        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -52,5 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         }); */
+
+
     }
 }

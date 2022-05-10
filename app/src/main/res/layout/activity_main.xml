@@ -17,31 +17,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/Chest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chest" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/Arms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arms" />
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Abdominals" />
-
-        <com.google.android.material.tabs.TabItem
+            android:id="@+id/Legs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Legs" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/Shoulders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shoulders" />
