@@ -1,6 +1,7 @@
 package com.example.csc22100_finalproject;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new fragment3(), "ARMS");
         adapter.addFragment(new fragment4(), "LEGS");
         adapter.addFragment(new fragment5(), "SHOULDERS");
+        adapter.addFragment(new fragment6(), "ABS" );
         viewPager.setAdapter(adapter);
 
 /*        binding = ActivityMainBinding.inflate(getLayoutInflater());
