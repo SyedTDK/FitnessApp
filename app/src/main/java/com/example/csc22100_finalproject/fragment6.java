@@ -2,63 +2,71 @@ package com.example.csc22100_finalproject;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragment6#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class fragment6 extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private void removeView(View view, LinearLayout layoutList) {
+        layoutList.removeView(view);
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public fragment6() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment6.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static fragment6 newInstance(String param1, String param2) {
-        fragment6 fragment = new fragment6();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment6, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment6, container, false);
+        LinearLayout layoutList = (LinearLayout) view.findViewById(R.id.layout_list6);
+        Button buttonAdd = (Button) view.findViewById(R.id.button_add);
+        List<String> workoutList = new ArrayList<>();
+        workoutList.add("Workout");
+        workoutList.add("Plank");
+        workoutList.add("Dead Bug");
+        workoutList.add("Dumbbell Side Bend");
+        workoutList.add("Barbell Back Squat");
+        workoutList.add("Bird Dog");
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                final View repsView = getLayoutInflater().inflate(R.layout.row_add_rep,null,false);
+                EditText editText = (EditText)repsView.findViewById(R.id.edit_rep);
+                AppCompatSpinner spinnerWorkout =(AppCompatSpinner)repsView.findViewById(R.id.spinner_workout);
+                ImageView imageClose = (ImageView)repsView.findViewById(R.id.image_remove);
+                ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item,workoutList);
+
+                spinnerWorkout.setAdapter(arrayAdapter);
+
+                imageClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        removeView(repsView,layoutList);
+                    }
+                });
+
+                layoutList.addView(repsView);
+            }
+
+        });
+
+
+        return view;
     }
+
 }
