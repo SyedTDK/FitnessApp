@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
         Adapter adapter = new Adapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        adapter.addFragment(new fragment1(), "CHEST");
-        adapter.addFragment(new fragment2(), "BACK");
-        adapter.addFragment(new fragment3(), "ARMS");
-        adapter.addFragment(new fragment4(), "LEGS");
-        adapter.addFragment(new fragment5(), "SHOULDERS");
-        adapter.addFragment(new fragment6(), "ABS" );
+        adapter.addFragment(new fragment1(), "Chest");
+        adapter.addFragment(new fragment2(), "Back");
+        adapter.addFragment(new fragment3(), "Arms");
+        adapter.addFragment(new fragment4(), "Legs");
+        adapter.addFragment(new fragment5(), "Shoulders");
+        adapter.addFragment(new fragment6(), "Abs" );
         viewPager.setAdapter(adapter);
 
 /*        binding = ActivityMainBinding.inflate(getLayoutInflater());
