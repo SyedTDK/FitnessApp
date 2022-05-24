@@ -59,7 +59,7 @@ public class fragment1 extends Fragment {
                     @Override
                     public void onClick(View v) {
                         removeView(repsView, layoutList);
-                    }
+                    }   //Removing a set
                 });
 
                 layoutList.addView(repsView);
